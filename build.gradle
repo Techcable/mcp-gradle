@@ -1,9 +1,8 @@
-apply plugin: 'scala'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: 'maven'
 
-group='jk_5.nailed.mcp'
+group='net.techcable.mcp'
 version='1.6.3-SNAPSHOT'
 
 repositories {
@@ -30,6 +29,7 @@ configurations {
 }
 
 dependencies {
+    provided 'org.projectlombok:lombok:1.16.4'
     compile 'org.ow2.asm:asm-debug-all:4.1'
     compile 'org.scala-lang:scala-library:2.11.1'
     compile 'com.google.guava:guava:14.0.1'
@@ -50,6 +50,9 @@ dependencies {
 
     testCompile 'junit:junit:4.11'
 }
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 uploadArchives {
     if (project.hasProperty("deploymaven")) {
